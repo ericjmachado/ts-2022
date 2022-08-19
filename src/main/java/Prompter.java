@@ -23,7 +23,6 @@ public class Prompter {
     }
 
     public boolean promptForGuess() {
-        Console console = System.console();
         boolean isHit= false;
         boolean validateGuess= false;
         Scanner scan = new Scanner(System.in);
