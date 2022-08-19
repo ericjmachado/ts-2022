@@ -1,4 +1,5 @@
 import java.io.Console;
+import java.util.Scanner;
 
 public class Prompter {
     private Game mGame;
@@ -25,21 +26,19 @@ public class Prompter {
         Console console = System.console();
         boolean isHit= false;
         boolean validateGuess= false;
-
+        Scanner scan = new Scanner(System.in);
         while(!validateGuess){
-            String guessString=console.readLine("Enter a character: ");
-
+            System.out.println("Enter a character: ");
+            String guessString= scan.nextLine();
             try{
                 isHit=mGame.guess(guessString);
                 validateGuess=true;
             } catch(IllegalArgumentException e){
-                console.printf("%s Pls try again\n", e.getMessage());
+                System.out.println( e.getMessage() + "Pls try again\n" );
 
             }
 
         }
-
-
         return isHit;
     }
 
